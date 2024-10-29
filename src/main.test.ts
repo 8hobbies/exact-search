@@ -34,7 +34,7 @@ describe("generateNewUrl", () => {
         test(testCase.name, () => {
           expect(
             generateNewUrl(`https://example.com/?${testCase.input}`, [
-              { urlRegex: /^https:\/\/example.com\//, queryParam: "q" },
+              { urlRegex: /^https:\/\/example\.com\//, queryParam: "q" },
             ]),
           ).toBe(`https://example.com/?${testCase.expected}`);
         });
@@ -165,7 +165,7 @@ describe("generateNewUrl", () => {
     expect(
       generateNewUrl(url, [
         {
-          urlRegex: /^https:\/\/www.example.org/,
+          urlRegex: /^https:\/\/www\.example\.org/,
           queryParam: "q",
         },
       ] as const),
@@ -174,7 +174,7 @@ describe("generateNewUrl", () => {
 
   test("Don't do anything if input is not a URL even if it matches the regexp", () => {
     const url = "https//www.example.org" as const;
-    const urlRegex = /^https\/\/www.example.org/;
+    const urlRegex = /^https\/\/www\.example\.org/;
     // Sanity check
     expect(url).toMatch(urlRegex);
     expect(
