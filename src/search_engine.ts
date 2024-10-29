@@ -1,4 +1,5 @@
-/**
+/** @license GPL-3.0-or-later
+ *
  * Copyright (C) 2024 8 Hobbies, LLC
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,27 +23,27 @@ export interface SearchEngine {
 
 export const searchEngines = [
   {
-    urlRegex: /^https?:\/\/www.bing.com\/search\?/,
+    urlRegex: /^https?:\/\/www\.bing\.com\/search\?/,
     queryParam: "q",
   },
   {
-    urlRegex: /^https?:\/\/www.duckduckgo.com\?/,
+    urlRegex: /^https?:\/\/www\.duckduckgo\.com\?/,
     queryParam: "q",
   },
   {
-    urlRegex: /^https?:\/\/www.ecosia.org\/search\?/,
+    urlRegex: /^https?:\/\/www\.ecosia\.org\/search\?/,
     queryParam: "q",
   },
   {
-    urlRegex: /^https?:\/\/www.google.com\/search\?/,
+    urlRegex: /^https?:\/\/www\.google\.com\/search\?/,
     queryParam: "q",
   },
   {
-    urlRegex: /^https?:\/\/www.yahoo.com\/search\?/,
+    urlRegex: /^https?:\/\/www\.yahoo\.com\/search\?/,
     queryParam: "p",
   },
   {
-    urlRegex: /^https?:\/\/www.yandex.com\/search\?/,
+    urlRegex: /^https?:\/\/www\.yandex\.com\/search\?/,
     queryParam: "text",
   },
 ] as const satisfies SearchEngine[];
