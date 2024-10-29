@@ -13,6 +13,19 @@
     "test-once": "npm run coverage",
     "test-all": "npm run lint && npm run compile && npm run test-once"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/8hobbies/exact-search.git"
+  },
+  "keywords": [
+    "browser-extension"
+  ],
+  "author": "8 Hobbies, LLC",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/8hobbies/exact-search/issues"
+  },
+  "homepage": "https://www.goodaddon.com/exact-search",
   "devDependencies": {
     "@8hobbies/eslint-conf-baseline": "^5.0.0",
     "@rollup/plugin-terser": "^0.4.4",
