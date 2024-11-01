@@ -2,13 +2,6 @@
 
 Toggle exact search in search engines.
 
-## Develop
+Please visit https://www.goodaddon.com/exact-search for more information.
 
-To build, run
-
-```
-npm install
-npm run build
-```
-
-The extension is built in the `dist/` directory.
+If you'd like to contribute, check out CONTRIBUTING.md.
