@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import type { SearchEngine } from "./search_engine.js";
+import type { SearchEngine, UrlParam } from "./search_engine.js";
 
 /** Gets the search engine currently the tab is on.
  */
@@ -86,6 +86,49 @@ function splitQuery(query: string): string[] {
   return result;
 }
 
+/** Quote all queries of a URL. */
+function quoteQueries(parsedUrl: URL, queryParam: string): URL {
+  const params = parsedUrl.searchParams;
+  const query = params.get(queryParam);
+  if (query === null) {
+    // No query found.
+    return parsedUrl;
+  }
+
+  const phrases = splitQuery(query);
+  const allQuoted = phrases.every(isQuoted);
+  let newQuery: string;
+  if (allQuoted) {
+    // All phrases are quoted. Unquote those that don't have any blank characters.
+    newQuery = phrases
+      .map((s) => ([...s].some(isBlank) ? s : s.slice(1, s.length - 1)))
+      .join(" ");
+  } else {
+    // Not all phrases are quoted. Quote the unquoted.
+    newQuery = phrases.map((s) => (isQuoted(s) ? s : `"${s}"`)).join(" ");
+  }
+  params.set(queryParam, newQuery);
+
+  return parsedUrl;
+}
+
+/** Add or remove the verbatim param based on its presence. */
+function addOrRemoveVerbatimParam(
+  parsedUrl: URL,
+  verbatimParam: Readonly<UrlParam>,
+): URL {
+  const params = parsedUrl.searchParams;
+  const verbatimValue = params.get(verbatimParam.key);
+  if (verbatimValue === null || verbatimValue !== verbatimParam.value) {
+    // Verbatim param not found
+    params.set(verbatimParam.key, verbatimParam.value);
+  } else {
+    params.delete(verbatimParam.key);
+  }
+
+  return parsedUrl;
+}
+
 /** Generates the expected new URL from the current one.
  */
 export function generateNewUrl(
@@ -105,26 +148,12 @@ export function generateNewUrl(
     return url;
   }
 
-  const params = parsedUrl.searchParams;
-  const query = params.get(searchEngine.queryParam);
-  if (query === null) {
-    // No query found.
-    return url;
-  }
-
-  const phrases = splitQuery(query);
-  const allQuoted = phrases.every(isQuoted);
-  let newQuery: string;
-  if (allQuoted) {
-    // All phrases are quoted. Unquote those that don't have any blank characters.
-    newQuery = phrases
-      .map((s) => ([...s].some(isBlank) ? s : s.slice(1, s.length - 1)))
-      .join(" ");
+  if (searchEngine.verbatimParam === undefined) {
+    return quoteQueries(parsedUrl, searchEngine.queryParam).toString();
   } else {
-    // Not all phrases are quoted. Quote the unquoted.
-    newQuery = phrases.map((s) => (isQuoted(s) ? s : `"${s}"`)).join(" ");
+    return addOrRemoveVerbatimParam(
+      parsedUrl,
+      searchEngine.verbatimParam,
+    ).toString();
   }
-  params.set(searchEngine.queryParam, newQuery);
-
-  return parsedUrl.toString();
 }
