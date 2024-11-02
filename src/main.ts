@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import type { SearchEngine, UrlParam } from "./search_engine.js";
+import type { SearchEngine, UrlParam } from "./search_engines.js";
 
 /** Gets the search engine currently the tab is on.
  */
