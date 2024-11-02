@@ -1,6 +1,6 @@
 # Exact Search
 
-Toggle exact search in search engines.
+Toggle exact/verbatim search in search engines.
 
 Please visit https://www.goodaddon.com/exact-search for more information.
 

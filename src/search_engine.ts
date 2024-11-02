@@ -16,9 +16,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+export interface UrlParam {
+  key: string;
+  value: string;
+}
+
 export interface SearchEngine {
   urlRegex: RegExp;
   queryParam: string;
+  // The param that leads to exact/verbatim search. If not provided, double quotes are used.
+  verbatimParam?: UrlParam;
 }
 
 export const searchEngines = [
@@ -37,6 +44,10 @@ export const searchEngines = [
   {
     urlRegex: /^https?:\/\/www\.google\.com\/search\?/,
     queryParam: "q",
+    verbatimParam: {
+      key: "tbs",
+      value: "li:1",
+    },
   },
   {
     urlRegex: /^https?:\/\/www\.yahoo\.com\/search\?/,

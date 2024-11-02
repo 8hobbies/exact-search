@@ -1,1 +1,1 @@
-A browser extension that toggles exact search for search engines.
+A browser extension that toggles exact/verbatim search in search engines.

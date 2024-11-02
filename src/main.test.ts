@@ -15,8 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+import { UrlParam, searchEngines } from "./search_engine.js";
+import { expectToBeNonNull, expectToBeNull } from "@8hobbies/test-utils";
 import { generateNewUrl } from "./main.js";
-import { searchEngines } from "./search_engine.js";
 
 describe("generateNewUrl", () => {
   interface BasicTestCase {
@@ -200,7 +201,7 @@ describe("generateNewUrl", () => {
     ).toBe(`https://www.example.com/?${param}=%22term%22`);
   });
 
-  describe("Regexpes of builtin search engines match", () => {
+  describe("Builtin search engines", () => {
     for (const testCase of [
       {
         name: "Bing",
@@ -220,7 +221,7 @@ describe("generateNewUrl", () => {
       {
         name: "Google",
         input: "https://www.google.com/search?q=a",
-        expected: "https://www.google.com/search?q=%22a%22",
+        expected: "https://www.google.com/search?q=a&tbs=li%3A1",
       },
       {
         name: "Yahoo",
@@ -237,6 +238,66 @@ describe("generateNewUrl", () => {
         expect(generateNewUrl(testCase.input, searchEngines)).toBe(
           testCase.expected,
         );
+      });
+    }
+  });
+
+  describe("Verbatim param", () => {
+    const verbatimParam: UrlParam = {
+      key: "verbatimKey",
+      value: "verbatimValue",
+    } as const;
+
+    const url = "https://example.com/" as const;
+
+    const testSearchEngines = [
+      { urlRegex: /^https:\/\/example\.com\//, queryParam: "q", verbatimParam },
+    ] as const;
+
+    interface TestCase {
+      name: string;
+      url: string;
+    }
+
+    for (const testCase of [
+      {
+        name: "Naked URL",
+        url,
+      },
+      {
+        name: "Other URL params present",
+        url: `${url}?q=something`,
+      },
+      {
+        name: "Verbatim param key but not value",
+        url: `${url}?${verbatimParam.key}=nonsense`,
+      },
+    ] as const satisfies TestCase[]) {
+      test(`Add verbatim param: ${testCase.name}`, () => {
+        const newUrl = generateNewUrl(testCase.url, testSearchEngines);
+        const parsedUrl = URL.parse(newUrl);
+        expectToBeNonNull(parsedUrl);
+        expect(parsedUrl.searchParams.get(verbatimParam.key)).toBe(
+          verbatimParam.value,
+        );
+      });
+    }
+
+    for (const testCase of [
+      {
+        name: "Only the verbatim param present",
+        url: `${url}?${verbatimParam.key}=${verbatimParam.value}`,
+      },
+      {
+        name: "Other URL params present",
+        url: `${url}?q=something&${verbatimParam.key}=${verbatimParam.value}`,
+      },
+    ] as const satisfies TestCase[]) {
+      test(`Remove verbatim param: ${testCase.name}`, () => {
+        const newUrl = generateNewUrl(testCase.url, testSearchEngines);
+        const parsedUrl = URL.parse(newUrl);
+        expectToBeNonNull(parsedUrl);
+        expectToBeNull(parsedUrl.searchParams.get(verbatimParam.key));
       });
     }
   });
