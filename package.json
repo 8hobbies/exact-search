@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "rollup --config rollup.config.ts --configPlugin typescript && ncp manifest.json dist/manifest.json",
+    "build": "rollup --config rollup.config.ts --configPlugin typescript && ncp manifest.json dist/manifest.json && ncp icons dist/icons && rimraf dist/icons/README.md",
     "compile": "tsc",
     "coverage": "vitest run --coverage --typecheck",
     "format": "eslint --fix */**.ts *.mjs && prettier . --write",
@@ -37,6 +37,7 @@
     "@vitest/coverage-v8": "^2.1.4",
     "ncp": "^2.0.0",
     "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
     "rollup": "^4.24.3",
     "tslib": "^2.8.0",
     "typescript": "~5.6.3",
