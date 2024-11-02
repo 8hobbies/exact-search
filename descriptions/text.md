@@ -6,3 +6,6 @@ browser extension allows you to toggle between:
 
 - allowing the search engine to guess, and
 - requiring the search engine to search for the exact terms you give.
+
+To use Exact Search, search in your favorite search engine as usual, then click on the extension or
+press <kbd>Alt+Shift+E</kbd> to toggle exact search!
