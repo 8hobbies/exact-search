@@ -1,8 +1,11 @@
 {
   "manifest_version": 3,
   "name": "Exact Search",
-  "version": "1.0",
-  "description": "Include every word in the search result.",
+  "version": "1.0.0",
+  "author": "GoodAddon.com",
+  "description": "Toggles exact/verbatim search in search engines.",
+  "homepage_url": "https://www.goodaddon.com/exact-search",
+  "minimum_chrome_version": "121",
   "background": {
     "service_worker": "background.js",
     "scripts": ["background.js"]
@@ -15,6 +18,13 @@
         "default": "Ctrl+Shift+E",
         "mac": "Ctrl+Shift+E"
       }
+    }
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "exact-search@goodaddon.com",
+      "strict_min_version": "121"
     }
   }
 }
