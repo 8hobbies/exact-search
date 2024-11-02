@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "rimraf dist && rollup --config rollup.config.ts --configPlugin typescript && ncp manifest.json dist/manifest.json && ncp icons dist/icons && rimraf dist/icons/README.md && cd dist && bestzip ../exact-search.zip *",
+    "build": "rimraf dist exact-search.zip && rollup --config rollup.config.ts --configPlugin typescript && ncp manifest.json dist/manifest.json && ncp icons dist/icons && rimraf dist/icons/README.md && web-ext build -a . -s dist --filename exact-search.zip",
     "compile": "tsc",
     "coverage": "vitest run --coverage --typecheck",
     "format": "eslint --fix */**.ts *.mjs && prettier . --write",
-    "lint": "eslint */**.ts *.mjs --report-unused-disable-directives --max-warnings 0 && prettier . --check",
+    "lint": "eslint */**.ts *.mjs --report-unused-disable-directives --max-warnings 0 && prettier . --check && npm run build && web-ext lint -s exact-search.zip",
     "test": "vitest --typecheck",
     "test-once": "npm run coverage",
     "test-all": "npm run lint && npm run compile && npm run test-once"
@@ -35,7 +35,6 @@
     "@types/jest": "^29.5.14",
     "@types/node": "^22.8.4",
     "@vitest/coverage-v8": "^2.1.4",
-    "bestzip": "^2.2.1",
     "ncp": "^2.0.0",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
@@ -43,6 +42,7 @@
     "tslib": "^2.8.0",
     "typescript": "~5.6.3",
     "typescript-eslint": "^8.12.2",
-    "vitest": "^2.1.4"
+    "vitest": "^2.1.4",
+    "web-ext": "^8.3.0"
   }
 }
