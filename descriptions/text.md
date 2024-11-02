@@ -11,5 +11,14 @@ To use Exact Search, search in your favorite search engine as usual, then click 
 press <kbd>Alt+Shift+E</kbd> (Chrome) or a custom keyboard shortcut (Firefox) to toggle exact
 search!
 
+## Supported Search Engines
+
+- Bing
+- DuckDuckGo
+- Ecosia
+- Google
+- Yahoo
+- Yandex
+
 _Exact Search is an open source project. If you are interested, feel free to check out the [source
 code](https://github.com/8hobbies/exact-search)._
