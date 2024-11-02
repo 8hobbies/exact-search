@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-import { UrlParam, searchEngines } from "./search_engine.js";
+import { UrlParam, searchEngines } from "./search_engines.js";
 import { expectToBeNonNull, expectToBeNull } from "@8hobbies/test-utils";
 import { generateNewUrl } from "./main.js";
 

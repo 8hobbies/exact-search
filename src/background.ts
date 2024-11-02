@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 import { generateNewUrl } from "./main.js";
-import { searchEngines } from "./search_engine.js";
+import { searchEngines } from "./search_engines.js";
 
 // eslint-disable-next-line @typescript-eslint/no-deprecated
 chrome.action.onClicked.addListener(async (tab) => {
