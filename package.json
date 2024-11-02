@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/8hobbies/exact-search/issues"
   },
-  "homepage": "https://www.goodaddon.com/exact-search",
+  "homepage": "https://www.goodaddon.com/exact-search/",
   "devDependencies": {
     "@8hobbies/eslint-conf-baseline": "^5.0.0",
     "@8hobbies/test-utils": "^2.2.0",
