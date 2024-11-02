@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Exact Search",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "author": "GoodAddon.com",
   "description": "Toggles exact/verbatim search in search engines.",
   "homepage_url": "https://www.goodaddon.com/exact-search",

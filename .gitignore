@@ -12,6 +12,7 @@ node_modules
 dist
 dist-ssr
 *.local
+/exact-search.zip
 
 # Editor directories and files
 .vscode/*
