@@ -28,7 +28,7 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "exact-search@goodaddon.com",
-      "strict_min_version": "121"
+      "strict_min_version": "121.0"
     }
   }
 }

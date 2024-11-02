@@ -4,7 +4,7 @@ Toggle exact/verbatim search in search engines.
 
 Please visit https://www.goodaddon.com/exact-search for more information.
 
-If you'd like to contribute, please check out CONTRIBUTING.md.
+If you'd like to rebuild or contribute this browser extension, please check out CONTRIBUTING.md.
 
 ## License
 
