@@ -22,3 +22,8 @@ npm run lint
 ## Homepage Content
 
 To make changes to the content of the home page, please edit the files in the folder descriptions/.
+
+## License
+
+Please check out the license information in the README.md file at the root directory of this
+repository.
