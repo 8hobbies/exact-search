@@ -11,6 +11,12 @@ To use Exact Search, search in your favorite search engine as usual, then click 
 press <kbd>Alt+Shift+E</kbd> (Chrome) or a custom keyboard shortcut (Firefox) to toggle exact
 search!
 
+## Screenshots
+
+|  Exact Search Off   |  Exact Search On   |
+| :-----------------: | :----------------: |
+| ![](images/off.png) | ![](images/on.png) |
+
 ## Supported Search Engines
 
 - Bing
