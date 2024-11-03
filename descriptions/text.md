@@ -8,7 +8,8 @@ browser extension allows you to toggle between:
 - requiring the search engine to search for the exact terms you give.
 
 To use Exact Search, search in your favorite search engine as usual, then click on the extension or
-press <kbd>Alt+Shift+E</kbd> (Chrome) or a custom keyboard shortcut (Firefox) to toggle exact
+press <kbd>Alt+Shift+E</kbd> in Chrome or a [custom extension shortcut in
+Firefox](https://support.mozilla.org/en-US/kb/manage-extension-shortcuts-firefox) to toggle exact
 search!
 
 ## Screenshots
