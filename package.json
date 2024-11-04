@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "rimraf dist exact-search.zip && rollup --config rollup.config.ts --configPlugin typescript && ncp manifest.json dist/manifest.json && ncp icons dist/icons && rimraf dist/icons/README.md && web-ext build -a . -s dist --filename exact-search.zip",
+    "ff:android": "web-ext run -t firefox-android --firefox-apk org.mozilla.fenix --adb-device",
     "compile": "tsc",
     "coverage": "vitest run --coverage --typecheck",
     "format": "eslint --fix */**.ts *.mjs && prettier . --write",
