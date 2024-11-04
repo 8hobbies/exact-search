@@ -2,14 +2,33 @@
 
 ## Build and Run
 
-To build, run
+First, install all dependencies:
 
 ```bash
 npm install
+```
+
+## Desktop Browser Extensions (Chrome, Firefox, Edge)
+
+To build, run
+
+```bash
 npm run build
 ```
 
 The extension is built in the `dist/` directory.
+
+### Firefox Android
+
+To prepare the devices, check out the [_Set up your computer and Android emulator or device_
+section](https://extensionworkshop.com/documentation/develop/developing-extensions-for-firefox-for-android/).
+You can skip the installing `web-ext` step, which is already installed when you ran `npm install`.
+
+To build and run on Firefox Android, run
+
+```bash
+npm run ff:android -- [adb-device-id]
+```
 
 ## Lint
 
