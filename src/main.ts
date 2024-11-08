@@ -17,6 +17,7 @@
  */
 
 import type { SearchEngine, UrlParam } from "./search_engines.js";
+import { isBlank } from "@8hobbies/utils";
 
 /** Gets the search engine currently the tab is on.
  */
@@ -31,12 +32,6 @@ function getSearchEngine(
   }
 
   return null;
-}
-
-/** Indicates whether the string is blank.
- */
-function isBlank(s: string): boolean {
-  return s.trim().length === 0;
 }
 
 /** Indicates whether a string is quoted.
