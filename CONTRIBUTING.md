@@ -8,7 +8,7 @@ First, install all dependencies:
 npm install
 ```
 
-## Desktop Browser Extensions (Chrome, Firefox, Edge)
+### Desktop Browser Extensions (Chrome, Firefox, Edge)
 
 To build, run
 
@@ -22,7 +22,8 @@ The extension is built in the `dist/` directory.
 
 To prepare the devices, check out the [_Set up your computer and Android emulator or device_
 section](https://extensionworkshop.com/documentation/develop/developing-extensions-for-firefox-for-android/).
-You can skip the installing `web-ext` step, which is already installed when you ran `npm install`.
+You can skip the installing `web-ext` step, which has already been installed when you ran `npm
+install`.
 
 To build and run on Firefox Android, run
 
