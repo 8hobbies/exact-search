@@ -18,6 +18,7 @@
 
 import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
+import nodeResolve from "@rollup/plugin-node-resolve";
 
 export default {
   input: "src/background.ts",
@@ -25,5 +26,5 @@ export default {
     dir: "dist",
     format: "es",
   },
-  plugins: [terser(), typescript()],
+  plugins: [terser(), typescript(), nodeResolve()],
 };
