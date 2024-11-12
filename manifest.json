@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Exact Search",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "GoodAddon",
   "description": "Toggles exact/verbatim search in search engines.",
   "homepage_url": "https://www.goodaddon.com/exact-search/",
@@ -14,7 +14,8 @@
   "minimum_chrome_version": "121",
   "background": {
     "service_worker": "background.js",
-    "scripts": ["background.js"]
+    "scripts": ["background.js"],
+    "type": "module"
   },
   "action": {},
   "permissions": ["activeTab"],
