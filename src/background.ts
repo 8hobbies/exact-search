@@ -25,8 +25,11 @@ chrome.action.onClicked.addListener(async (tab) => {
     return;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-deprecated
-  await chrome.tabs.update(tab.id, {
-    url: generateNewUrl(tab.url, searchEngines),
-  });
+  const url = generateNewUrl(tab.url, searchEngines);
+  if (url !== null) {
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
+    await chrome.tabs.update(tab.id, {
+      url,
+    });
+  }
 });

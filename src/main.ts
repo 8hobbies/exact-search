@@ -125,22 +125,23 @@ function addOrRemoveVerbatimParam(
 }
 
 /** Generates the expected new URL from the current one.
+ * Returns null if no action should be taken.
  */
 export function generateNewUrl(
   url: string,
   searchEngines: readonly SearchEngine[],
-): string {
+): string | null {
   const searchEngine = getSearchEngine(url, searchEngines);
   if (searchEngine === null) {
     // Uninteresting URL.
-    return url;
+    return null;
   }
 
   const parsedUrl = URL.parse(url);
   if (parsedUrl === null) {
     // Not a URL.
     console.error(`${url} is not a URL.`);
-    return url;
+    return null;
   }
 
   if (searchEngine.verbatimParam === undefined) {
