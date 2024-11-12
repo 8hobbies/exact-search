@@ -170,7 +170,7 @@ describe("generateNewUrl", () => {
           queryParam: "q",
         },
       ] as const),
-    ).toBe(url);
+    ).toBeNull();
   });
 
   test("Don't do anything if input is not a URL even if it matches the regexp", () => {
@@ -185,7 +185,7 @@ describe("generateNewUrl", () => {
           queryParam: "q",
         },
       ] as const),
-    ).toBe(url);
+    ).toBeNull();
   });
 
   test("Non-q search param works", () => {
@@ -275,6 +275,7 @@ describe("generateNewUrl", () => {
     ] as const satisfies TestCase[]) {
       test(`Add verbatim param: ${testCase.name}`, () => {
         const newUrl = generateNewUrl(testCase.url, testSearchEngines);
+        expectToBeNonNull(newUrl);
         const parsedUrl = URL.parse(newUrl);
         expectToBeNonNull(parsedUrl);
         expect(parsedUrl.searchParams.get(verbatimParam.key)).toBe(
@@ -295,6 +296,7 @@ describe("generateNewUrl", () => {
     ] as const satisfies TestCase[]) {
       test(`Remove verbatim param: ${testCase.name}`, () => {
         const newUrl = generateNewUrl(testCase.url, testSearchEngines);
+        expectToBeNonNull(newUrl);
         const parsedUrl = URL.parse(newUrl);
         expectToBeNonNull(parsedUrl);
         expectToBeNull(parsedUrl.searchParams.get(verbatimParam.key));
