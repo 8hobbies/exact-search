@@ -25,28 +25,6 @@ on:
 
 jobs:
   test:
-    name: Runtime
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        node-version: [22.x]
-        os: [ubuntu-latest, macos-latest, windows-latest]
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
-
-      - name: Install Dependencies
-        run: |
-          npm install
-
-      - name: Test
-        run: |
-          npm run compile
-          npm run test-once
+    uses: 8hobbies/workflows/.github/workflows/npm-runtime.yml@076ce36c4ceccfc8a428b92956d895fb3a030596
+    with:
+      node-versions: '["22.x"]'
