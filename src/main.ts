@@ -96,7 +96,7 @@ function quoteQueries(parsedUrl: URL, queryParam: string): URL {
   if (allQuoted) {
     // All phrases are quoted. Unquote those that don't have any blank characters.
     newQuery = phrases
-      .map((s) => ([...s].some(isBlank) ? s : s.slice(1, s.length - 1)))
+      .map((s) => (s.split("").some(isBlank) ? s : s.slice(1, s.length - 1)))
       .join(" ");
   } else {
     // Not all phrases are quoted. Quote the unquoted.
