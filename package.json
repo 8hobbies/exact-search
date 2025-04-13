@@ -36,16 +36,16 @@
     "@rollup/plugin-typescript": "12.1.2",
     "@types/chrome": "0.0.313",
     "@types/jest": "29.5.14",
-    "@types/node": "22.13.14",
-    "@vitest/coverage-v8": "3.0.9",
+    "@types/node": "22.14.0",
+    "@vitest/coverage-v8": "3.1.1",
     "ncp": "2.0.0",
     "prettier": "3.5.3",
     "rimraf": "6.0.1",
-    "rollup": "4.38.0",
+    "rollup": "4.39.0",
     "tslib": "2.8.1",
-    "typescript": "5.8.2",
-    "typescript-eslint": "8.28.0",
-    "vitest": "3.0.9",
+    "typescript": "5.8.3",
+    "typescript-eslint": "8.29.0",
+    "vitest": "3.1.1",
     "web-ext": "8.5.0"
   }
 }
