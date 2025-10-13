@@ -33,11 +33,11 @@ chrome.action.onClicked.addListener(async (tab) => {
 });
 
 chrome.runtime.onInstalled.addListener(async (details) => {
-  if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
+  if (details.reason === "install") {
     await chrome.tabs.create({
       url: "https://www.goodaddon.com/exact-search/",
     });
-  } else if (details.reason === chrome.runtime.OnInstalledReason.UPDATE) {
+  } else if (details.reason === "update") {
     await chrome.tabs.create({
       url: "https://www.goodaddon.com/exact-search/#changelog",
     });
