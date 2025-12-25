@@ -1,6 +1,6 @@
 # @license GPL-3.0-or-later
 #
-# Copyright (C) 2024 8 Hobbies, LLC
+# Copyright (C) 2024-2025 8 Hobbies, LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -27,4 +27,4 @@ jobs:
   test:
     uses: 8hobbies/workflows/.github/workflows/npm-runtime.yml@00e84568aa8441faba7d53d88666b78e19c677d7
     with:
-      node-versions: '["22.x"]'
+      node-versions: '["24.x"]'
